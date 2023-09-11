@@ -1,32 +1,86 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloudtype - Flask</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>불편사항 신고</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00c73c;
+            font-size: 32px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        form {
+            background-color: #f6f6f6;
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+            text-align: left; /* 왼쪽 정렬 추가 */
+        }
+
+        input[type="text"],
+        textarea {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical; /* 세로 리사이즈 추가 */
+        }
+
+        input[type="submit"] {
+            background-color: #00c73c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #009e31;
+        }
+    </style>
 </head>
 <body>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src="{{ url_for('static', filename='img/flask.webp') }}" class="w-36 rounded-lg md:ml-5 lg:ml-5"  alt="flask"/>
-    <div>
-      <h1 class="text-5xl font-bold">Flask</h1>
-      <p class="py-6">클라우드타입에서 배포한 Flask 어플리케이션입니다.</p>
-      <button type="button" onclick="window.open('https://github.com/cloudtype-examples/flask')" class="btn btn-outline rounded">
-        GitHub
-      </button>
-      <button type="button" onclick="window.open('https://docs.cloudtype.io/')" class="btn btn-outline rounded">
-        Docs
-      </button>
-      <button type="button" onclick="window.open('https://discord.gg/U7HX4BA6hu')" class="btn btn-outline rounded">
-        Discord
-      </button>
-    </div>
-  </div>
-</div>
+    <h1>불편사항 신고</h1>
+    <form action="/submit" method="post">
+        <label for="reporter">신고자:</label>
+        <input type="text" id="reporter" name="reporter" required>
+
+        <br>
+
+        <label for="location">위치:</label>
+        <input type="text" id="location" name="location" required>
+
+        <br>
+
+        <label for="complaint">불편내용:</label>
+        <textarea id="complaint" name="complaint" rows="4" required style="width: 100%;"></textarea> <!-- 불편내용 텍스트 왼쪽 정렬 및 가로 폭 100%로 변경 -->
+
+        <br>
+
+        <input type="submit" value="제출">
+    </form>
 </body>
 </html>
