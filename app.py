@@ -1,5 +1,3 @@
-# telegram_bot  6228091502:AAGX9fMa3Np4bPCpub1QPLjqSd-GSZfe5W4
-# ID  71046013
 from flask import Flask, render_template, request
 import requests
 
