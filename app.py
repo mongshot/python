@@ -10,7 +10,7 @@ TELEGRAM_CHAT_ID = '71046013'
 
 @app.route('/')
 def home():
-    return render_template('report.html')
+    return render_template('index.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
